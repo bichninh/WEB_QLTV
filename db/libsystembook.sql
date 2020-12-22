@@ -19,7 +19,7 @@ SET time_zone = "+00:00";
 /*!40101 SET NAMES utf8mb4 */;
 
 --
--- Cơ sở dữ liệu: `libsystem`
+-- Cơ sở dữ liệu: `libsystembook`
 --
 
 -- --------------------------------------------------------
@@ -43,7 +43,7 @@ CREATE TABLE `admin` (
 --
 
 INSERT INTO `admin` (`id`, `username`, `password`, `firstname`, `lastname`, `photo`, `created_on`) VALUES
-(1, 'bichbich', '123456', 'do', 'huong', '', '2020-10-20');
+(1, 'bichha', '12345', 'bich', 'bich', '', '2020-10-20');
 
 -- --------------------------------------------------------
 
@@ -59,17 +59,17 @@ CREATE TABLE `books` (
   `author` varchar(150) CHARACTER SET latin1 NOT NULL,
   `quality` int(30) NOT NULL,
   `publisher` varchar(150) CHARACTER SET latin1 NOT NULL,
-  `publish_date` date NOT NULL,
-  `status` int(1) NOT NULL
+  `publish_date` date NOT NULL
+  
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `books`
 --
 
-INSERT INTO `books` (`id`, `isbn`, `category_id`, `title`, `author`, `quality`, `publisher`, `publish_date`, `status`) VALUES
-(1, 'testisbn12345', 1, 'Sample Title', 'Sample Author', 20, 'My Printers', '2018-05-21', 1),
-(2, 'bookisbntest', 2, 'This is a Sample Title of a Sample Book', 'Author Me', 5, 'Self Publish Inc', '2018-05-02', 0);
+INSERT INTO `books` (`id`, `isbn`, `category_id`, `title`, `author`, `quality`, `publisher`, `publish_date`) VALUES
+(1, 'testisbn12345', 1, 'Sample Title', 'Sample Author', 20, 'My Printers', '2018-05-21'),
+(2, 'bookisbntest', 2, 'This is a Sample Title of a Sample Book', 'Author Me', 5, 'Self Publish Inc', '2018-05-02');
 
 -- --------------------------------------------------------
 
@@ -122,7 +122,7 @@ INSERT INTO `category` (`id`, `name`) VALUES
 -- Cấu trúc bảng cho bảng `returns`
 --
 
-CREATE TABLE `returns` (
+CREATE TABLE `returned` (
   `id` int(11) NOT NULL,
   `student_id` int(11) NOT NULL,
   `book_id` int(11) NOT NULL,
@@ -133,7 +133,7 @@ CREATE TABLE `returns` (
 -- Đang đổ dữ liệu cho bảng `returns`
 --
 
-INSERT INTO `returns` (`id`, `student_id`, `book_id`, `date_return`) VALUES
+INSERT INTO `returned` (`id`, `student_id`, `book_id`, `date_return`) VALUES
 (1, 3, 2, '2020-10-20'),
 (2, 3, 1, '2020-10-20'),
 (3, 3, 2, '2020-10-20'),
@@ -195,7 +195,7 @@ ALTER TABLE `category`
 --
 -- Chỉ mục cho bảng `returns`
 --
-ALTER TABLE `returns`
+ALTER TABLE `returned`
   ADD PRIMARY KEY (`id`);
 
 --
@@ -235,7 +235,7 @@ ALTER TABLE `category`
 --
 -- AUTO_INCREMENT cho bảng `returns`
 --
-ALTER TABLE `returns`
+ALTER TABLE `returned`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=5;
 
 --
