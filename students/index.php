@@ -29,7 +29,7 @@
         		</div>
       		</div>
     	</form>
-  	</div>
+  	</div>e
   	<?php
   		if(isset($_SESSION['error'])){
   			echo "
