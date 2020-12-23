@@ -1,6 +1,6 @@
 <footer class="main-footer">
     <div class="pull-right hidden-xs">
-      <b>All rights reserved</b>
+      <b>Library Management</b>
     </div>
-    <strong>Copyright &copy; 2018 <a href="https://www.sourcecodester.com/">SourceCodeSter</a></strong>
+    <strong>Year: 2020 </strong>
 </footer>
