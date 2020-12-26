@@ -33,12 +33,15 @@
 
 				</ul>
 				<ul class="nav navbar-nav">
-                    <li ><a>Login</a></li>
-
-                     <ul>
-                    <li><a href="admin/login.php">Login admin</a></li>
-                    <li><a href="students/login.php">Login student</a></li>
-                    </ul>
+                    <li class="nav-item dropdown">
+					<a class="nav-link dropdown-toggle" href="#" id="navbarDropdownMenuLink" data-toggle="dropdown" aria-haspopup="true" aria-expanded="false">
+					Login</a>
+					<div class="dropdown-menu" aria-labelledby="navbarDropdownMenuLink">
+                    <a class="dropdown-item" href="admin/login.php">Admin</a>
+                    <a  class="dropdown-item" href="students/login.php">Student</a>
+					</div>
+					</li>
+                    
                 </ul>
                
                     <ul class="nav navbar-nav">
