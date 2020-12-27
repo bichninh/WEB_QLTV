@@ -179,7 +179,7 @@ function getRow(id){
     data: {id:id},
     dataType: 'json',
     success: function(response){
-      $('.borrowid').val(response.borrowid);
+      $('.dkborrowid').val(response.dkborrowid);
      
       $('#edit_1').val(response.student_id);
       $('#edit_2').val(response.book_id);

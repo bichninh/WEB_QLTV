@@ -82,22 +82,42 @@ CREATE TABLE `borrow` (
   `student_id` int(11) NOT NULL,
   `book_id` int(11) NOT NULL,
   `date_borrow` date NOT NULL,
-  `status` int(1) NOT NULL
+  `status` int(1) NOT NULL,
+  `dkborrow_id` int(11) NOT NULL
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `borrow`
 --
 
-INSERT INTO `borrow` (`id`, `student_id`, `book_id`, `date_borrow`, `status`) VALUES
-(15, 3, 1, '2020-10-04', 1),
-(16, 3, 2, '2020-10-04', 1),
-(17, 3, 1, '2020-10-04', 0),
-(18, 3, 2, '2020-10-04', 1);
+INSERT INTO `borrow` (`id`, `student_id`, `book_id`, `date_borrow`, `status`,`dkborrow_id`) VALUES
+(15, 3, 1, '2020-10-04', 1,1),
+(16, 3, 2, '2020-10-04', 1,2),
+(17, 3, 1, '2020-10-04', 0,3),
+(18, 3, 2, '2020-10-04', 1,4);
 
 -- --------------------------------------------------------
 
 --
+-- Cấu trúc bảng cho bảng `borrow`
+
+CREATE TABLE `dkborrow` (
+  `dk_id` int(11) NOT NULL,
+  `student_id` int(11) NOT NULL,
+  `book_id` int(11) NOT NULL,
+  `date_borrow` date NOT NULL,
+  `status1` int(1) NOT NULL
+) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
+
+--
+-- Đang đổ dữ liệu cho bảng `dkborrow`
+--
+
+INSERT INTO `dkborrow` (`dk_id`, `student_id`, `book_id`, `date_borrow`, `status1`) VALUES
+(15, 3, 1, '2020-10-04', 1),
+(16, 3, 2, '2020-10-04', 1),
+(17, 3, 1, '2020-10-04', 0),
+(18, 3, 2, '2020-10-04', 1);
 -- Cấu trúc bảng cho bảng `category`
 --
 
@@ -187,6 +207,10 @@ ALTER TABLE `borrow`
   ADD PRIMARY KEY (`id`);
 
 --
+---Chỉ mục cho bảng `dkborrow`
+  ALTER TABLE `dkborrow`
+      ADD PRIMARY KEY (`dk_id`);
+  --
 -- Chỉ mục cho bảng `category`
 --
 ALTER TABLE `category`
@@ -225,6 +249,13 @@ ALTER TABLE `books`
 --
 ALTER TABLE `borrow`
   MODIFY `id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
+-- AUTO_INCREMENT cho bảng `dkborrow`
+ALTER TABLE `dkborrow`
+  MODIFY `dk_id` int(11) NOT NULL AUTO_INCREMENT, AUTO_INCREMENT=19;
+
+--
 
 --
 -- AUTO_INCREMENT cho bảng `category`

@@ -17,25 +17,15 @@
 	  if( $student_id == $row1['id']  ){
 	 if($row['quality']>0 ){
  
-    $sql = "INSERT INTO borrow (student_id, book_id, date_borrow, status) VALUES ('$student_id', '$book_id', '$date_borrow',1)";
+    $sql = "INSERT INTO dkborrow (student_id, book_id, date_borrow, status1) VALUES ('$student_id', '$book_id', '$date_borrow',1)";
 	$query3 = mysqli_query($conn, $sql);
 	
 	if($query3){
 		$error = true;
-		
-	$sql1= "UPDATE books SET quality= quality-1 WHERE id= $book_id AND quality > 0 " ;
-	$query= mysqli_query($conn, $sql1);
-
-	if($query){
-	  $error = true;
-	  $_SESSION['success'] = ' Borrowed successfully';
-     }
-	 else {
-		$_SESSION['error'] = 'Error';
-	}
-	}
+		 $_SESSION['success'] = ' Borrowed successfully';
+     	}
 	else {
-		$_SESSION['error'] = 'Error';
+		$_SESSION['error'] = 'Error1';
 	}
 }
 

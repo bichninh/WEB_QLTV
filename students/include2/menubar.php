@@ -27,6 +27,7 @@
         <ul class="treeview-menu">
           <li><a href="viewborrowed.php"><i class="fa fa-circle-o"></i> Borrow</a></li>
           <li><a href="viewreturned.php"><i class="fa fa-circle-o"></i> Return</a></li>
+          <li><a href="viewdkborrow.php"><i class="fa fa-circle-o"></i> Signup borrow books </a></li>
         </ul>
       </li>
       <li class="treeview">
