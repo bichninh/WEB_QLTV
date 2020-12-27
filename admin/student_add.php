@@ -21,7 +21,9 @@
 			$numbers .= $i;
 		}
 		$id = substr(str_shuffle($letters), 0, 3).substr(str_shuffle($numbers), 0, 9);
-		
+		$sql = "SELECT student_usename from students where student_username = $student_username";
+		$queryCheck = mysqli_query($conn, $sql);
+		if(!isset($queryCheck)){
 		$sql = "INSERT INTO students (id, student_username ,firstname,lastname, emaill, photo, created_on) VALUES ('$id','$student_username' ,'$firstname', '$lastname', '$emaill', '$filename', NOW())";
 		if($conn->query($sql)){
 			$_SESSION['success'] = 'Student added successfully';
@@ -29,7 +31,8 @@
 		else{
 			$_SESSION['error'] = $conn->error;
 		}
-
+	}
+	else{$_SESSION['error'] = 'Student exited!';}
 	}
 	else{
 		$_SESSION['error'] = 'Fill up add form first';
