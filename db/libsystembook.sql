@@ -82,19 +82,19 @@ CREATE TABLE `borrow` (
   `student_id` int(11) NOT NULL,
   `book_id` int(11) NOT NULL,
   `date_borrow` date NOT NULL,
-  `status` int(1) NOT NULL,
-  `dkborrow_id` int(11) NOT NULL
+  `status` int(1) NOT NULL
+  
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8mb4 COLLATE=utf8mb4_unicode_ci;
 
 --
 -- Đang đổ dữ liệu cho bảng `borrow`
 --
 
-INSERT INTO `borrow` (`id`, `student_id`, `book_id`, `date_borrow`, `status`,`dkborrow_id`) VALUES
-(15, 3, 1, '2020-10-04', 1,1),
-(16, 3, 2, '2020-10-04', 1,2),
-(17, 3, 1, '2020-10-04', 0,3),
-(18, 3, 2, '2020-10-04', 1,4);
+INSERT INTO `borrow` (`id`, `student_id`, `book_id`, `date_borrow`, `status`) VALUES
+(15, 3, 1, '2020-10-04', 1),
+(16, 3, 2, '2020-10-04', 1),
+(17, 3, 1, '2020-10-04', 0),
+(18, 3, 2, '2020-10-04', 1);
 
 -- --------------------------------------------------------
 

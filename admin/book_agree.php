@@ -10,7 +10,7 @@
 		$book_id= $row5['book_id'];
 		$dkborrow_id=$row5['dk_id'];
 
-	$sql = "INSERT INTO borrow (student_id, book_id, date_borrow,status,dkborrow_id) VALUES ($student_id, $book_id, NOW(),1,$dkborrow_id)";
+	$sql = "INSERT INTO borrow (student_id, book_id, date_borrow,status) VALUES ($student_id, $book_id, NOW(),1)";
 	$query3 = mysqli_query($conn, $sql);
 	
 	if($query3){

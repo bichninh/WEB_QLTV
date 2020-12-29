@@ -3,24 +3,35 @@
 
 	if(isset($_POST['add'])){
 		$name = $_POST['name'];
-		$sql = "SELECT  from category where name = $name";
-		$queryCheck = mysqli_query($conn, $sql);
-		if(!isset($queryCheck)){
-		$sql = "INSERT INTO category (name) VALUES ('$name')";
-		if($conn->query($sql)){
-			$_SESSION['success'] = 'Category added successfully';
-		}
-		else{
-			$_SESSION['error'] = $conn->error;
+		$sql = "SELECT *from category";
+		
+		$query1 = mysqli_query($conn, $sql);
+		$count = 0;
+		while($row = $query1->fetch_assoc()){
+		
+        if( $row['name'] == $name ){
+			$count =$count +1;
 		}
 	}
-	else { $_SESSION['error'] = 'Category exited!';}
-	}	
 
-	else{
-		$_SESSION['error'] = 'Fill up add form first';
-	}
-
+	if($count == 0)
+	{
+		     $sql1 = "INSERT INTO category (name) VALUES ('$name')";
+			$query = mysqli_query($conn, $sql1);
+			if($query){
+				$error = true;
+				$_SESSION['success'] = 'add category successful!';
+			
+			}
+			else{
+				
+				$_SESSION['error'] = $conn->error;
+			
+			}
+		
+}
+if($count !=0)   $_SESSION['error'] = 'category exited!';
+	
 	header('location: category.php');
-
+}
 ?>
